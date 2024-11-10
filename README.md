@@ -40,3 +40,50 @@ This repository contains a structured version of the **German Traffic Sign Recog
 - **Google Drive**: Due to the large size of the dataset, the entire dataset is hosted on Google Drive. Use the provided link to access and download the dataset.
 
 ---
+
+## Accessing the Dataset from Google Drive
+
+### If you don’t have the dataset locally:
+1. Ensure you have the necessary Python packages installed for downloading from Google Drive:
+   ```bash
+   !pip install gdown
+   ```
+
+2. Download the dataset from the shared Google Drive link using `gdown`. Here is the command to download the dataset:
+
+   ```python
+   import gdown
+
+   # Google Drive folder URL
+   gdrive_url = 'https://drive.google.com/drive/folders/1WvWtjCpbGw3fflmX5QV_4UYIvEXDLDIt?usp=sharing'
+   
+   # To download from Google Drive, use the gdown link with the folder id.
+   # Replace '/uc?id=' with the folder id and download using this URL.
+   gdown.download_folder(gdrive_url, quiet=False)
+   ```
+
+3. Unzip the dataset if necessary (depending on the file format). If it's a zipped file, use the following command:
+   ```bash
+   !unzip dataset.zip -d ./path_to_extract/
+   ```
+
+4. Verify that the dataset is available in the extracted folder. The structure should resemble:
+   ```
+   ./path_to_extract/
+   ├── Metadata
+   ├── Test
+   └── Train
+   ```
+
+5. Once the dataset is unzipped and in the correct directory, you can proceed with running the code that references this path. Update the code paths as needed to point to the dataset location, for example:
+
+   ```python
+   # Example path to the dataset for your code
+   train_data_path = './path_to_extract/Train/'
+   test_data_path = './path_to_extract/Test/'
+   ```
+
+### Note:
+Make sure the file paths in the code correspond to where the dataset has been extracted!
+
+---
